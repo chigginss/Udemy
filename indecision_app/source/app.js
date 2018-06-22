@@ -20,10 +20,16 @@ let template = (
 );
 
 let user = {
-    name: 'Cierra',
+    // name: 'Cierra',
     age: 25,
-    location: 'San Francisco'
+    // location: 'San Francisco'
 };
+
+function getLocation(location) {
+  if (location) {
+    return <p> Location: {location}</p>;
+  }
+}
 
 // cannot just render an object in react! must use user.name
 
@@ -33,12 +39,12 @@ let user = {
 
 let templateTwo = (
   <div>
-    <h1>{user.name}</h1>
+    <h1>{user.name ? user.name : 'Anonymous'}</h1>
     <p>Age: {user.age}</p>
-    <p>Location: {user.location}</p>
+    {getLocation(user.location)}
   </div>
 );
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
