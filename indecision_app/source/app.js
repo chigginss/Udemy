@@ -2,49 +2,62 @@ console.log('App.js is runnning!');
 
 // JSX 
 
-let app = {
-
+// only render the subtitle and p tag if subtitle exists
+// render new p tag if there are items in options
+const app = {
     title: "Indecision App",
-    subtitle: "CANT MAKE UP YO MIND?"
+    subtitle: "CANT MAKE UP YO MIND?",
+    options: ['One', 'Two']
 };
 
-let template = (
+const template = (
   <div>
     <h1>{app.title}</h1>
-    <p>{app.subtitle}</p>
+    {app.subtitle && <p>{app.subtitle}</p>}
+    <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
     <ol>
-        <li>HI</li>
-        <li>THERE</li>
+        <li>Item one</li>
+        <li>Item two</li>
     </ol>
   </div>
 );
 
-let user = {
-    // name: 'Cierra',
-    age: 25,
-    // location: 'San Francisco'
-};
+// const user = {
+//     name: 'Cierra',
+//     age: 25,
+//     location: 'San Francisco'
+// };
 
-function getLocation(location) {
-  if (location) {
-    return <p> Location: {location}</p>;
-  }
-}
+// // if location doesn't exist
 
-// cannot just render an object in react! must use user.name
+// function getLocation(location) {
+//   if (location) {
+//     return <p> Location: {location}</p>;
+//   }
+// }
 
-// let userName = 'Cierra Higgins';
-// let userAge = 25;
-// let userLocal = 'San Francisco'
+// // cannot just render an object in react! must use user.name
 
-let templateTwo = (
+// // user.name ? user.name means return name or other value
+// //undefined, null and boolean values are ignored by JSX
+// // <p>Age: {user.age}</p>
+// const templateTwo = (
+//   <div>
+//     <h1>{user.name ? user.name : 'Anonymous'}</h1>
+//     {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
+//     {getLocation(user.location)}
+//   </div>
+// );
+
+let count = 0;
+const templateTwo = (
   <div>
-    <h1>{user.name ? user.name : 'Anonymous'}</h1>
-    <p>Age: {user.age}</p>
-    {getLocation(user.location)}
+      <h1> Count: {count}</h1>
+      <button id="my-id" className="button">+1</button>
   </div>
 );
 
-var appRoot = document.getElementById('app');
+console.log(templateTwo);
+const appRoot = document.getElementById('app');
 
 ReactDOM.render(templateTwo, appRoot);
