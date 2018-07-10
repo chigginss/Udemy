@@ -1,119 +1,138 @@
 'use strict';
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+//react components are basically just classes
+// to create a new components
+// The goal is to NOT use JSX and use React Components instead
+// React enforces uppercase first letter
 
-// define our class in ES6
-// create a default if name(instance) does not exist
-// use backticks to create template string
-// then use a ${} to use JS inside string instead of concatination
-// students also have ages, we just need to add Major
-// use extends to extend an existing class
-// make an instance of Person class
-// methods are avaliable on instances
-// add age to constructor (Default to 0)
-// override construction function
-// super(); calls parent constructor function (like Python)
-// 
-var Person = function () {
-    function Person() {
-        var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Unknown';
-        var age = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+var Header = function (_React$Component) {
+  _inherits(Header, _React$Component);
 
-        _classCallCheck(this, Person);
+  function Header() {
+    _classCallCheck(this, Header);
 
-        this.name = name;
-        this.age = age;
+    return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+  }
+
+  _createClass(Header, [{
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'h1',
+          null,
+          'Indecision'
+        ),
+        React.createElement(
+          'h2',
+          null,
+          'Leave it to the computer!'
+        )
+      );
     }
+  }]);
 
-    _createClass(Person, [{
-        key: 'getGreeting',
-        value: function getGreeting() {
-            return 'Hi, I am ' + this.name + '.';
-        }
-    }, {
-        key: 'getDesc',
-        value: function getDesc() {
-            return this.name + ' is ' + this.age + ' years old.';
-        }
-    }]);
+  return Header;
+}(React.Component);
 
-    return Person;
-}();
+var Action = function (_React$Component2) {
+  _inherits(Action, _React$Component2);
 
-var Student = function (_Person) {
-    _inherits(Student, _Person);
+  function Action() {
+    _classCallCheck(this, Action);
 
-    function Student(name, age, major) {
-        _classCallCheck(this, Student);
+    return _possibleConstructorReturn(this, (Action.__proto__ || Object.getPrototypeOf(Action)).apply(this, arguments));
+  }
 
-        var _this = _possibleConstructorReturn(this, (Student.__proto__ || Object.getPrototypeOf(Student)).call(this, name, age));
-
-        _this.major = major;
-        return _this;
+  _createClass(Action, [{
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'button',
+          null,
+          'What should I do?'
+        )
+      );
     }
+  }]);
 
-    _createClass(Student, [{
-        key: 'hasMajor',
-        value: function hasMajor() {
-            return !!this.major;
-        }
-    }, {
-        key: 'getDesc',
-        value: function getDesc() {
-            var description = _get(Student.prototype.__proto__ || Object.getPrototypeOf(Student.prototype), 'getDesc', this).call(this);
+  return Action;
+}(React.Component);
 
-            if (this.hasMajor()) {
-                description += ' Their major is ' + this.major + '.';
-            }
+var Options = function (_React$Component3) {
+  _inherits(Options, _React$Component3);
 
-            return description;
-        }
-    }]);
+  function Options() {
+    _classCallCheck(this, Options);
 
-    return Student;
-}(Person);
+    return _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).apply(this, arguments));
+  }
 
-var Traveler = function (_Person2) {
-    _inherits(Traveler, _Person2);
-
-    function Traveler(name, age, homelocation) {
-        _classCallCheck(this, Traveler);
-
-        var _this2 = _possibleConstructorReturn(this, (Traveler.__proto__ || Object.getPrototypeOf(Traveler)).call(this, name, age));
-
-        _this2.homelocation = homelocation;
-        return _this2;
+  _createClass(Options, [{
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'ul',
+          null,
+          React.createElement(
+            'li',
+            null,
+            'Options'
+          )
+        )
+      );
     }
+  }]);
 
-    _createClass(Traveler, [{
-        key: 'getGreeting',
-        value: function getGreeting() {
-            var greeting = _get(Traveler.prototype.__proto__ || Object.getPrototypeOf(Traveler.prototype), 'getGreeting', this).call(this);
+  return Options;
+}(React.Component);
 
-            if (this.homelocation) {
-                greeting += ' I am traveling from ' + this.homelocation + '.';
-            }
+var AddOptions = function (_React$Component4) {
+  _inherits(AddOptions, _React$Component4);
 
-            return greeting;
-        }
-    }]);
+  function AddOptions() {
+    _classCallCheck(this, AddOptions);
 
-    return Traveler;
-}(Person);
+    return _possibleConstructorReturn(this, (AddOptions.__proto__ || Object.getPrototypeOf(AddOptions)).apply(this, arguments));
+  }
 
-var me = new Student('Cierra Higgins', 25, 'English');
-console.log(me.getDesc());
+  _createClass(AddOptions, [{
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
+        null,
+        'add Option'
+      );
+    }
+  }]);
 
-var trav = new Traveler('Cierra Higgins', 25, 'Missoula');
-console.log(trav.getGreeting());
+  return AddOptions;
+}(React.Component);
 
-var other = new Student();
-console.log(other.getDesc());
+var jsx = React.createElement(
+  'div',
+  null,
+  React.createElement(Header, null),
+  React.createElement(Action, null),
+  React.createElement(Options, null),
+  React.createElement(AddOptions, null)
+);
+
+ReactDOM.render(jsx, document.getElementById('app'));
