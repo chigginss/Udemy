@@ -8,17 +8,18 @@ class IndecisionApp extends React.Component {
     this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
     this.handlePick = this.handlePick.bind(this);
     this.handleAddOption = this.handleAddOption.bind(this);
+    this.handleDeleteOption = this.handleDeleteOption.bind(this);
     this.state = {
-      options: []
+      options: props.options
     };
   }
 
   handleDeleteOptions() {
-    this.setState(() => {
-      return {
-        options: []
-      };
-    });
+    this.setState(() => ({options: [] }));
+  }
+
+  handleDeleteOption(option) {
+    console.log('gdo', option);
   }
 
   handlePick() {
@@ -38,11 +39,9 @@ class IndecisionApp extends React.Component {
       return 'This option already exists';
     }
 
-    this.setState((prevState) => {
-      return {
-        options: prevState.options.concat(option)
-      };
-    });
+    this.setState((prevState) => ({
+      options: prevState.options.concat(option)
+    }));
   }
 
   render() {
@@ -51,7 +50,7 @@ class IndecisionApp extends React.Component {
     
     return (
       <div>
-        <Header title={title} subtitle={subtitle} />
+        <Header />
         <Action hasOptions={this.state.options.length > 0} handlePick={this.handlePick} />
         <Options options={this.state.options} handleDeleteOptions={this.handleDeleteOptions} />
         <AddOptions handleAddOption={this.handleAddOption}/>
@@ -60,20 +59,27 @@ class IndecisionApp extends React.Component {
   }
 }
 
+IndecisionApp.defaultProps = {
+  options: []
+};
 
 const Header = (props) => {
   return (
       <div>
         <h1>{props.title}</h1>
-        <h2>{props.subtitle}</h2>
+        {props.subtitle && <h2>{props.subtitle}</h2>}
       </div>
   );
 }
 
+Header.defaultProps = {
+  title: 'Indecision'
+};
+
 const Action = (props) => {
   return (
     <div>
-      <button onClick={props.handlePick} disabled={props.options}>
+      <button onClick={props.handlePick} disabled={!props.hasOptions}>
         What should I?
       </button>
     </div>
@@ -115,9 +121,7 @@ class AddOptions extends React.Component {
     const option = e.target.elements.option.value.trim();
     const error = this.props.handleAddOption(option);
 
-    this.setState(() => {
-      return { error };
-    });
+    this.setState(() => ({error}));
   }
 
   render() {
