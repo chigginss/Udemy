@@ -30,6 +30,11 @@ var IndecisionApp = function (_React$Component) {
   }
 
   _createClass(IndecisionApp, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      console.log('componentDidMount!');
+    }
+  }, {
     key: 'handleDeleteOptions',
     value: function handleDeleteOptions() {
       this.setState(function () {
@@ -38,8 +43,14 @@ var IndecisionApp = function (_React$Component) {
     }
   }, {
     key: 'handleDeleteOption',
-    value: function handleDeleteOption(option) {
-      console.log('gdo', option);
+    value: function handleDeleteOption(optionToRemove) {
+      this.setState(function (prevState) {
+        return {
+          options: prevState.options.filter(function (option) {
+            return optionToRemove !== option;
+          })
+        };
+      });
     }
   }, {
     key: 'handlePick',
@@ -77,8 +88,10 @@ var IndecisionApp = function (_React$Component) {
         'div',
         null,
         React.createElement(Header, null),
-        React.createElement(Action, { hasOptions: this.state.options.length > 0, handlePick: this.handlePick }),
-        React.createElement(Options, { options: this.state.options, handleDeleteOptions: this.handleDeleteOptions }),
+        React.createElement(Action, {
+          hasOptions: this.state.options.length > 0, handlePick: this.handlePick }),
+        React.createElement(Options, {
+          options: this.state.options, handleDeleteOptions: this.handleDeleteOptions, handleDeleteOption: this.handleDeleteOption }),
         React.createElement(AddOptions, { handleAddOption: this.handleAddOption })
       );
     }
@@ -134,7 +147,7 @@ var Options = function Options(props) {
       'Remove All'
     ),
     props.options.map(function (option) {
-      return React.createElement(Option, { key: option, optionText: option });
+      return React.createElement(Option, { key: option, optionText: option, handleDeleteOption: props.handleDeleteOption });
     })
   );
 };
@@ -143,7 +156,14 @@ var Option = function Option(props) {
   return React.createElement(
     'div',
     null,
-    props.optionText
+    props.optionText,
+    React.createElement(
+      'button',
+      { onClick: function onClick(e) {
+          props.handleDeleteOption(props.optionText);
+        } },
+      'Remove'
+    )
   );
 };
 
