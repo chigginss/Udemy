@@ -78,11 +78,9 @@ class IndecisionApp extends React.Component {
     return (
       <div>
         <Header />
-        <Action 
-          hasOptions={this.state.options.length > 0} handlePick={this.handlePick} />
-        <Options 
-        options={this.state.options} handleDeleteOptions={this.handleDeleteOptions} handleDeleteOption={this.handleDeleteOption} />
-        <AddOptions handleAddOption={this.handleAddOption}/>
+        <Action hasOptions={this.state.options.length > 0} handlePick={this.handlePick} />
+        <Options options={this.state.options} handleDeleteOptions={this.handleDeleteOptions} handleDeleteOption={this.handleDeleteOption} />
+        <AddOptions handleAddOption={this.handleAddOption} />
       </div>
     );
   }
@@ -94,7 +92,7 @@ IndecisionApp.defaultProps = {
 
 const Header = (props) => {
   return (
-      <div> 
+      <div>
         <h1>{props.title}</h1>
         {props.subtitle && <h2>{props.subtitle}</h2>}
       </div>
