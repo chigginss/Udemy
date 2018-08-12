@@ -1,0 +1,19 @@
+// notes on webpack
+
+
+Webpack: What is it? a module bundler? 
+we do not want all our code in one file. Break it up so it easier to scale and test
+
+First advantage: organize jS to single file 
+file is called bundle -  contains everything 
+only need one script tag 
+making a lot of requests before app even runs
+// grab the add function from add.js
+// breaking components into its own file 
+// grab react from the react npm module - grab 3rd party directories
+// manage dependinces in package.json
+// server render and form submissions
+// client size js would be effects
+
+// client side 
+// split public up > public (index.html, bundle.js)> src(app.js, utils.js)> node_modules(react.js, react-dom.js)
