@@ -11,3 +11,6 @@ module.exports = {
         filename: "bundle.js"
     }
 };
+
+//loader - customize the behavior of webpack
+//convert an SCSS file to CSS
