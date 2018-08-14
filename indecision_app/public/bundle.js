@@ -69,27 +69,38 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__person_js__ = __webpack_require__(2);
+// import subtract, { square, add } from './utils.js';
+
+// console.log("app2 is running!!");
+// console.log(add(100, 10));
+// console.log(square(4));
+// console.log(subtract(100, 10));
+
+//person.js
+// named exports - isAdult
+// can drink
+
+// import { isAdult, canDrink } from './person.js';
 
 
-console.log("app2 is running!!");
-console.log(square(4));
+console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["a" /* default */](19));
+// console.log(canDrink(22));
 
 /***/ }),
-/* 1 */
+/* 1 */,
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export square */
-console.log('utils.js is running');
 
-const square = (x) => x*x;
+const isAdult = (age) => age >= 18;
 
+const canDrink = (age) => age >= 21;
 
-// export is NOT AN OBJECT DEF
-// default export vs nmed export (more than one)
+// export { isAdult as default };
 
-
+/* harmony default export */ __webpack_exports__["a"] = (isAdult);
 
 /***/ })
 /******/ ]);
