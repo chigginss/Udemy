@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 const template = <p>THIS IS JSX</p>;
 ReactDOM.render(template, document.getElementById('app'));
 
+
+"build-babel": "babel source/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
 // webpack is running babel any time there is a js file
 // this is stored in the bundle webpack file
 
