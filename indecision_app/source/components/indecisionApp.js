@@ -1,5 +1,5 @@
 import React from 'react';
-import addOptions from './addOption'; 
+import AddOption from './addOption'; 
 import Header from './header';
 import Action from './action';
 import Options from './options';
@@ -84,7 +84,7 @@ export default class IndecisionApp extends React.Component {
         hasOptions={this.state.options.length > 0} handlePick={this.handlePick} />
         <Options 
         options={this.state.options} handleDeleteOptions={this.handleDeleteOptions} handleDeleteOption={this.handleDeleteOption} />
-        <AddOptions 
+        <AddOption 
         handleAddOption={this.handleAddOption} />
       </div>
     );

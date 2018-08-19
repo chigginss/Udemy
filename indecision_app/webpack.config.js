@@ -16,7 +16,8 @@ module.exports = {
             test: /\.js$/,
             exclude: /node_modules/
         }]
-    }
+    },
+    devetool: ''
 };
 
 //loader - customize the behavior of webpack

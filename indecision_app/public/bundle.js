@@ -1005,9 +1005,6 @@ var _indecisionApp2 = _interopRequireDefault(_indecisionApp);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// stateless functional component
-// different from class based
-
 _reactDom2.default.render(_react2.default.createElement(_indecisionApp2.default, null), document.getElementById('app'));
 
 /***/ }),
@@ -21367,7 +21364,7 @@ var IndecisionApp = function (_React$Component) {
           hasOptions: this.state.options.length > 0, handlePick: this.handlePick }),
         _react2.default.createElement(_options2.default, {
           options: this.state.options, handleDeleteOptions: this.handleDeleteOptions, handleDeleteOption: this.handleDeleteOption }),
-        _react2.default.createElement(AddOptions, {
+        _react2.default.createElement(_addOption2.default, {
           handleAddOption: this.handleAddOption })
       );
     }
@@ -21410,13 +21407,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // class definintions you can export default before declaration
 
-var addOptions = function (_React$Component) {
-  _inherits(addOptions, _React$Component);
+var AddOption = function (_React$Component) {
+  _inherits(AddOption, _React$Component);
 
-  function addOptions(props) {
-    _classCallCheck(this, addOptions);
+  function AddOption(props) {
+    _classCallCheck(this, AddOption);
 
-    var _this = _possibleConstructorReturn(this, (addOptions.__proto__ || Object.getPrototypeOf(addOptions)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
 
     _this.handleAddOption = _this.handleAddOption.bind(_this);
     _this.state = {
@@ -21425,7 +21422,7 @@ var addOptions = function (_React$Component) {
     return _this;
   }
 
-  _createClass(addOptions, [{
+  _createClass(AddOption, [{
     key: 'handleAddOption',
     value: function handleAddOption(e) {
       e.preventDefault();
@@ -21466,10 +21463,10 @@ var addOptions = function (_React$Component) {
     }
   }]);
 
-  return addOptions;
+  return AddOption;
 }(_react2.default.Component);
 
-exports.default = addOptions;
+exports.default = AddOption;
 
 /***/ }),
 /* 34 */

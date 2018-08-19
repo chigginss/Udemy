@@ -1,7 +1,7 @@
 import React from 'react'; 
 // class definintions you can export default before declaration
 
-class addOptions extends React.Component {
+class AddOption extends React.Component {
   constructor(props) {
     super(props);
     this.handleAddOption = this.handleAddOption.bind(this);
@@ -37,4 +37,4 @@ class addOptions extends React.Component {
 
 }
 
-export default addOptions;
+export default AddOption;
