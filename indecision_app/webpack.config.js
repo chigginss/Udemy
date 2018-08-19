@@ -17,7 +17,7 @@ module.exports = {
             exclude: /node_modules/
         }]
     },
-    devetool: ''
+    devtool: 'cheap-module-eval-source-map'
 };
 
 //loader - customize the behavior of webpack
