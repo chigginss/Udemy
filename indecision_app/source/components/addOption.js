@@ -2,17 +2,18 @@ import React from 'react';
 // class definintions you can export default before declaration
 
 class AddOption extends React.Component {
+  state = {
+    error: undefined
+  };
+
   constructor(props) {
     super(props);
     this.handleAddOption = this.handleAddOption.bind(this);
-    this.state = {
-      error: undefined
-    };
   }
 
-  handleAddOption(e) {
+  handleAddOption = (e) => {
     e.preventDefault();
-    
+
     const option = e.target.elements.option.value.trim();
     const error = this.props.handleAddOption(option);
 
@@ -21,7 +22,7 @@ class AddOption extends React.Component {
     if (!error) {
       e.target.elements.option.value = '';
     }
-  }
+  };
 
   render() {
     return (
